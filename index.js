@@ -29,11 +29,50 @@ const viewEmployees = (answers) => {
 };
 
 const addEmployee = (answers) => {
-    console.log("create prompt")
+    inquirer.prompt(
+        {
+           type: "input",
+           name:"first",
+           message:"What is the employee's first name?" 
+        },
+        {
+            type: "input",
+            name:"last",
+            message:"What is the employee's last name?" 
+         },
+         {
+            type: "list",
+            name:"employeeRole",
+            message:"What role belongs to this employee?",
+            choices:[roles.arr]//we want to cycle through an array of roles dynamically created depending on what we have currently.
+         },
+         {
+            type: "list",
+            name:"manager",
+            message:"Who manages this employee?",
+            choices:[managers.arr]//we want to cycle through an array of managers dynamically created depending on what we have currently.
+         }
+    )
+    console.log("New employee added to the employees table!")
 };
 
 const updateRole = (answers) => {
-    console.log("prompt for new input")
+    inquirer.prompt(
+        {
+            type: "list",
+            name: "updatedEmployee",
+            message:"Which employee's role did you want to update?",
+            choices:[employees.arr]//we want to cycle through an array of employees including first and last names dynamically created depending on what we have currently.
+         },
+         {
+            type: "list",
+            name:"updatedEmplRole",
+            message:"To which role would you like to assign this employee?",
+            choices:[roles.arr]//we want to cycle through an array of roles dynamically created depending on what we have currently.
+         },
+    )
+    console.log(`Employee ${first} ${last}'s role has been updated!`)
+    //later log a congratulations if it is promotion
 };
 
 const viewRoles = (answers) => {
@@ -58,7 +97,7 @@ const addRole = (answers) => {
         message:"Which department does this role belong in?"
     }
     )
-    console.log("added new role to the roles database!")
+    console.log("added new role to the roles table!")
 };
 
 const viewDepts = (answers) => {
@@ -73,5 +112,5 @@ const addDept = (answers) => {
             message:"What is the name of the new department?"
         }
     )
-    console.log("${addedDept} added to departements database!")
+    console.log(`${addedDept} added to departements table!`)
 };
