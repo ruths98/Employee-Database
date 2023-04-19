@@ -23,7 +23,7 @@
   },
   "homepage": "https://github.com/ruths98/Employee-Database#readme",
   "dependencies": {
-    "inquirer": "^9.1.5",
+    "inquirer": "^8.2.4",
     "mysql2": "^3.2.1"
   }
 }

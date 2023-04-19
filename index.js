@@ -53,6 +53,7 @@ const addEmployee = (answers) => {
             choices:[managers.arr]//we want to cycle through an array of managers dynamically created depending on what we have currently.
          }
     )
+    //call a function in update.sql to use the input (answers array)
     console.log("New employee added to the employees table!")
 };
 
@@ -71,6 +72,7 @@ const updateRole = (answers) => {
             choices:[roles.arr]//we want to cycle through an array of roles dynamically created depending on what we have currently.
          },
     )
+    //call function to update role in update.sql using input (answers)
     console.log(`Employee ${first} ${last}'s role has been updated!`)
     //later log a congratulations if it is promotion
 };
@@ -97,6 +99,7 @@ const addRole = (answers) => {
         message:"Which department does this role belong in?"
     }
     )
+    //call function to add new roll to table using the inputs (answers)
     console.log("added new role to the roles table!")
 };
 
@@ -112,5 +115,6 @@ const addDept = (answers) => {
             message:"What is the name of the new department?"
         }
     )
+    //call function to add input (answers) to existing departments table
     console.log(`${addedDept} added to departements table!`)
 };
